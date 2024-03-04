@@ -1,41 +1,17 @@
-function calculateRectangleArea(length, width) {
-    return length * width;
-}
+let inputs = document.getElementById("inp");
+let text = document.querySelector(".text");
 
-function greetUser(name) {
-    console.log("Hello, " + name + "!");
-}
-
-greetUser("John");
-
-let numbers = [1, 2, 3, 4, 5];
-
-for (let i = 0; i < numbers.length; i++) {
-    console.log(numbers[i]);
-}
-
-let person = {
-    name: "Alice",
-    age: 30,
-    profession: "Engineer"
-};
-
-console.log(person.name);
-
-function addNumbers(a, b) {
-    return a + b;
-}
-
-let sum = addNumbers(5, 3);
-console.log("The sum is: " + sum);
-
-function checkEvenOrOdd(number) {
-    if (number % 2 === 0) {
-        return "even";
-    } else {
-        return "odd";
+function Add(){
+    if(inputs.value == ""){
+        alert("Please Enter Task")
+    }else{
+        let newEle = document.createElement("ul");
+        newEle.innerHTML=`${inputs.value} <i class="fa-solid fa-trash"></i>`;
+        text.appendChild(newEle);
+        inputs.value="";
+        newEle.querySelector("i").addEventListener("click" , remove);
+        function remove(){
+            newEle.remove()
+        }
     }
 }
-
-let result = checkEvenOrOdd(7);
-console.log("The number is " + result);
